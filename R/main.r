@@ -237,15 +237,16 @@ route_distances_df <- route_distances |>
 
 head(route_distances_df)
 
-shortest_route_distance_df <- cbind(
-    edge_id = rownames(
+shortest_route_distance_df <- 
+    cbind(
+      edge_id = rownames(
         route_distances_df
-    ),
-    route_distances_df
-) |>
-    as.data.frame() |>
-    dplyr::rename(
-        distance = `8951126837`
+      ),
+      route_distances_df
+    ) |>
+    as_tibble() |>
+    setNames(
+        c("edge_id", "distance")
     ) |>
     dplyr::mutate(
         distance = as.numeric(distance)
