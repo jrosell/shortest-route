@@ -244,8 +244,8 @@ shortest_route_distance_df <- cbind(
     route_distances_df
 ) |>
     as.data.frame() |>
-    dplyr::rename(
-        distance = `8951126837`
+    setNames(
+      c("edge_id", "distance")
     ) |>
     dplyr::mutate(
         distance = as.numeric(distance)
